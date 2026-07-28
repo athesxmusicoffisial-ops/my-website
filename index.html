@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Basket & Music</title>
+    <title>Botify | Discord Bots</title>
 
     <style>
         * {
@@ -13,212 +13,630 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: #0b0b0f;
+            background: #0b0b12;
             color: white;
         }
 
+        /* NAVBAR */
+
         nav {
-            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #111118;
+
+            padding: 20px 8%;
+
+            background: rgba(11, 11, 18, 0.95);
+            border-bottom: 1px solid #222232;
         }
 
-        nav h1 {
-            font-size: 25px;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7289da;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            font-weight: bold;
         }
+
+        nav a:hover {
+            color: #7289da;
+        }
+
+        /* HERO */
 
         .hero {
             min-height: 80vh;
+
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
+
+            background:
+                radial-gradient(circle at top, #20204a, #0b0b12 60%);
         }
 
-        .hero h2 {
-            font-size: 55px;
+        .hero h1 {
+            font-size: 60px;
             margin-bottom: 20px;
         }
 
+        .hero h1 span {
+            color: #7289da;
+        }
+
         .hero p {
+            max-width: 650px;
+            margin: auto;
+
             font-size: 20px;
-            color: #bbbbbb;
-            margin-bottom: 30px;
+            line-height: 1.6;
+
+            color: #b8b8c7;
+        }
+
+        .buttons {
+            margin-top: 35px;
         }
 
         .button {
             display: inline-block;
-            padding: 15px 30px;
-            background: #5865F2;
-            color: white;
-            text-decoration: none;
+
+            padding: 15px 28px;
+            margin: 8px;
+
             border-radius: 10px;
+
+            text-decoration: none;
             font-weight: bold;
+
+            transition: 0.3s;
         }
 
-        .section {
-            padding: 70px 8%;
+        .primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            background: #4752c4;
+        }
+
+        .secondary {
+            border: 1px solid #5865f2;
+            color: white;
+        }
+
+        .secondary:hover {
+            background: #5865f2;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
             text-align: center;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: #15151d;
-            padding: 30px;
-            width: 280px;
-            border-radius: 15px;
-        }
-
-        .card h3 {
+            font-size: 40px;
             margin-bottom: 15px;
         }
 
-        .card p {
-            color: #bbbbbb;
+        .section-description {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 50px;
         }
 
-        footer {
-            padding: 30px;
-            text-align: center;
-            background: #111118;
-            color: #888;
+        /* BOT CARDS */
+
+        .bots {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
         }
+
+        .bot-card {
+            background: #151521;
+
+            border: 1px solid #252538;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-8px);
+            border-color: #5865f2;
+        }
+
+        .bot-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .bot-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .bot-card p {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .features li {
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        /* WHY US */
+
+        .why-us {
+            background: #101018;
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .why-card div {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        /* DISCORD */
+
+        .discord {
+            text-align: center;
+        }
+
+        .discord-box {
+            max-width: 700px;
+            margin: auto;
+
+            padding: 50px 30px;
+
+            background: #151521;
+
+            border-radius: 20px;
+
+            border: 1px solid #252538;
+        }
+
+        .discord-box p {
+            color: #aaa;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background: #08080d;
+
+            color: #777;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <h1>🏀 BASKET & MUSIC</h1>
+    <!-- NAVBAR -->
 
-        <div>
-            <a href="#basket">Basket</a>
-            <a href="#music">Music</a>
-            <a href="#discord">Discord</a>
+    <nav>
+
+        <div class="logo">
+            🤖 Botify
         </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#bots">Bots</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#discord">Discord</a>
+            </li>
+
+        </ul>
+
     </nav>
 
-    <section class="hero">
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
 
         <div>
-            <h2>Basketball & Music</h2>
+
+            <h1>
+                Powerful <span>Discord Bots</span>
+            </h1>
 
             <p>
-                Το δικό μας community για μπάσκετ,
-                μουσική και διασκέδαση.
+                Ανακάλυψε επαγγελματικά Discord Bots
+                για moderation, tickets, economy και
+                πολλά ακόμα.
             </p>
 
-            <a class="button" href="#discord">
-                Join Discord
-            </a>
-        </div>
+            <div class="buttons">
 
-    </section>
+                <a href="#bots" class="button primary">
+                    🤖 Explore Bots
+                </a>
 
-    <section class="section" id="basket">
+                <a href="#discord" class="button secondary">
+                    💬 Join Discord
+                </a>
 
-        <h2>🏀 Basketball</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>News</h3>
-                <p>
-                    Τα τελευταία νέα από τον κόσμο
-                    του μπάσκετ.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Highlights</h3>
-                <p>
-                    Οι καλύτερες στιγμές και
-                    τα πιο εντυπωσιακά plays.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Community</h3>
-                <p>
-                    Μίλα με άλλους fans του μπάσκετ.
-                </p>
             </div>
 
         </div>
 
     </section>
 
-    <section class="section" id="music">
 
-        <h2>🎵 Music</h2>
+    <!-- BOTS -->
 
-        <div class="cards">
+    <section id="bots">
 
-            <div class="card">
-                <h3>Music</h3>
-                <p>
-                    Ανακάλυψε νέα μουσική
-                    και αγαπημένα tracks.
-                </p>
-            </div>
+        <h2 class="section-title">
+            Our Bots
+        </h2>
 
-            <div class="card">
-                <h3>Playlists</h3>
-                <p>
-                    Οι καλύτερες playlists
-                    για κάθε στιγμή.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Events</h3>
-                <p>
-                    Μουσικά events και δραστηριότητες
-                    της κοινότητας.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="section" id="discord">
-
-        <h2>💬 Join Our Discord</h2>
-
-        <p style="margin: 20px 0;">
-            Έλα στην κοινότητά μας!
+        <p class="section-description">
+            Διάλεξε το bot που ταιριάζει στον Discord server σου.
         </p>
 
-        <a class="button" href="https://discord.gg/ΒΑΛΕ-ΤΟ-LINK-ΣΟΥ">
-            Join Discord
-        </a>
+
+        <div class="bots">
+
+
+            <!-- BOT 1 -->
+
+            <div class="bot-card">
+
+                <div class="bot-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Moderation Bot
+                </h3>
+
+                <p>
+                    Προστάτευσε τον Discord server σου
+                    με ένα δυνατό moderation system.
+                </p>
+
+                <ul class="features">
+
+                    <li>✅ Auto Moderation</li>
+                    <li>✅ Anti-Spam</li>
+                    <li>✅ Warn System</li>
+                    <li>✅ Ban & Kick</li>
+
+                </ul>
+
+                <a href="#discord" class="button primary">
+                    Order Bot
+                </a>
+
+            </div>
+
+
+            <!-- BOT 2 -->
+
+            <div class="bot-card">
+
+                <div class="bot-icon">
+                    🎫
+                </div>
+
+                <h3>
+                    Ticket Bot
+                </h3>
+
+                <p>
+                    Δημιούργησε ένα επαγγελματικό
+                    ticket system για τον server σου.
+                </p>
+
+                <ul class="features">
+
+                    <li>✅ Ticket System</li>
+                    <li>✅ Staff Support</li>
+                    <li>✅ Auto Close</li>
+                    <li>✅ Transcript</li>
+
+                </ul>
+
+                <a href="#discord" class="button primary">
+                    Order Bot
+                </a>
+
+            </div>
+
+
+            <!-- BOT 3 -->
+
+            <div class="bot-card">
+
+                <div class="bot-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Economy Bot
+                </h3>
+
+                <p>
+                    Πρόσθεσε ένα πλήρες economy system
+                    στον Discord server σου.
+                </p>
+
+                <ul class="features">
+
+                    <li>✅ Economy System</li>
+                    <li>✅ Daily Rewards</li>
+                    <li>✅ Shop</li>
+                    <li>✅ Leaderboard</li>
+
+                </ul>
+
+                <a href="#discord" class="button primary">
+                    Order Bot
+                </a>
+
+            </div>
+
+
+            <!-- BOT 4 -->
+
+            <div class="bot-card">
+
+                <div class="bot-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Custom Bot
+                </h3>
+
+                <p>
+                    Θέλεις κάτι μοναδικό;
+                    Δημιουργούμε custom Discord bot
+                    σύμφωνα με τις ανάγκες σου.
+                </p>
+
+                <ul class="features">
+
+                    <li>✅ Custom Commands</li>
+                    <li>✅ Custom Features</li>
+                    <li>✅ Personal Design</li>
+                    <li>✅ Support</li>
+
+                </ul>
+
+                <a href="#discord" class="button primary">
+                    Contact Us
+                </a>
+
+            </div>
+
+
+        </div>
 
     </section>
+
+
+    <!-- WHY US -->
+
+    <section class="why-us" id="about">
+
+        <h2 class="section-title">
+            Why Choose Us?
+        </h2>
+
+        <p class="section-description">
+            Όλα όσα χρειάζεσαι για έναν καλύτερο Discord server.
+        </p>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div>⚡</div>
+
+                <h3>
+                    Fast
+                </h3>
+
+                <p>
+                    Γρήγορη παράδοση και άμεση υποστήριξη.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div>🔒</div>
+
+                <h3>
+                    Secure
+                </h3>
+
+                <p>
+                    Ασφαλή και αξιόπιστα Discord Bots.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div>💎</div>
+
+                <h3>
+                    Quality
+                </h3>
+
+                <p>
+                    Προσεγμένα bots με επαγγελματικό design.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div>💬</div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <p>
+                    Επικοινωνία και βοήθεια μέσω Discord.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCORD -->
+
+    <section class="discord" id="discord">
+
+        <div class="discord-box">
+
+            <h2 class="section-title">
+                Join Our Discord
+            </h2>
+
+            <p>
+                Θέλεις να παραγγείλεις ένα bot;
+                Μπες στον Discord server μας
+                και άνοιξε ένα ticket.
+            </p>
+
+            <!-- ΑΛΛΑΞΕ ΤΟ LINK ΜΕ ΤΟ ΔΙΚΟ ΣΟΥ DISCORD INVITE -->
+
+            <a
+                href="https://discord.gg/ΒΑΛΕ-ΕΔΩ-ΤΟ-LINK-ΣΟΥ"
+                class="button primary"
+            >
+                💬 Join Discord
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
 
     <footer>
 
-        © 2026 Basket & Music Community
+        © 2026 Botify. All rights reserved.
 
     </footer>
+
 
 </body>
 </html>
