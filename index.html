@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Botify | Discord Bots</title>
+    <title>Discord Bot Market</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -18,8 +19,8 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0b0b12;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08090d;
             color: white;
         }
 
@@ -34,83 +35,127 @@
             justify-content: space-between;
             align-items: center;
 
-            padding: 20px 8%;
+            padding: 20px 7%;
 
-            background: rgba(11, 11, 18, 0.95);
-            border-bottom: 1px solid #222232;
+            background: rgba(8, 9, 13, 0.95);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #20222c;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #7289da;
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #5865f2;
         }
 
         nav ul {
             display: flex;
-            gap: 25px;
+            gap: 30px;
             list-style: none;
         }
 
         nav a {
-            color: white;
+            color: #c8c9d0;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #7289da;
+            color: #5865f2;
         }
+
 
         /* HERO */
 
         .hero {
-            min-height: 80vh;
+            min-height: 90vh;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
             text-align: center;
-            padding: 50px 20px;
+
+            padding: 60px 20px;
 
             background:
-                radial-gradient(circle at top, #20204a, #0b0b12 60%);
+                radial-gradient(
+                    circle at 50% 20%,
+                    #252b68 0%,
+                    #12152c 30%,
+                    #08090d 70%
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #343a80;
+
+            border-radius: 50px;
+
+            background: rgba(88, 101, 242, 0.12);
+
+            color: #8d96ff;
+
+            font-size: 14px;
+            font-weight: bold;
         }
 
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: clamp(45px, 7vw, 85px);
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
-            color: #7289da;
+            color: #5865f2;
         }
 
         .hero p {
-            max-width: 650px;
+            max-width: 700px;
+
             margin: auto;
 
-            font-size: 20px;
-            line-height: 1.6;
+            color: #a7a9b5;
 
-            color: #b8b8c7;
+            font-size: 20px;
+
+            line-height: 1.7;
         }
 
-        .buttons {
-            margin-top: 35px;
+        .hero-buttons {
+            margin-top: 40px;
         }
 
         .button {
             display: inline-block;
 
-            padding: 15px 28px;
-            margin: 8px;
+            padding: 15px 30px;
+
+            margin: 7px;
 
             border-radius: 10px;
 
             text-decoration: none;
-            font-weight: bold;
+
+            font-weight: 700;
 
             transition: 0.3s;
         }
@@ -121,98 +166,147 @@
         }
 
         .primary:hover {
-            transform: translateY(-3px);
             background: #4752c4;
+            transform: translateY(-3px);
         }
 
         .secondary {
-            border: 1px solid #5865f2;
+            border: 1px solid #303342;
             color: white;
+            background: #12141b;
         }
 
         .secondary:hover {
-            background: #5865f2;
+            border-color: #5865f2;
+            transform: translateY(-3px);
         }
 
-        /* SECTIONS */
+
+        /* GENERAL SECTIONS */
 
         section {
-            padding: 80px 8%;
+            padding: 100px 7%;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 40px;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 45px;
             margin-bottom: 15px;
         }
 
-        .section-description {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 50px;
+        .section-header p {
+            color: #92949f;
+            font-size: 18px;
         }
 
-        /* BOT CARDS */
 
-        .bots {
+        /* BOTS */
+
+        .bots-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
+                repeat(auto-fit, minmax(280px, 1fr));
 
             gap: 25px;
+
+            max-width: 1200px;
+
+            margin: auto;
         }
 
         .bot-card {
-            background: #151521;
+            position: relative;
 
-            border: 1px solid #252538;
+            padding: 35px;
 
-            border-radius: 15px;
+            background: #11131a;
 
-            padding: 30px;
+            border: 1px solid #242630;
+
+            border-radius: 18px;
 
             transition: 0.3s;
         }
 
         .bot-card:hover {
             transform: translateY(-8px);
+
             border-color: #5865f2;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0, 0, 0, 0.35);
         }
 
         .bot-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 25px;
+
+            border-radius: 15px;
+
+            background: #1d2140;
+
+            font-size: 30px;
         }
 
         .bot-card h3 {
-            font-size: 24px;
+            font-size: 25px;
             margin-bottom: 15px;
         }
 
         .bot-card p {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+            color: #92949f;
 
-        .features {
-            list-style: none;
+            line-height: 1.6;
+
             margin-bottom: 25px;
         }
 
-        .features li {
-            margin: 10px 0;
-            color: #ccc;
+        .bot-features {
+            list-style: none;
+
+            margin-bottom: 25px;
         }
+
+        .bot-features li {
+            color: #c5c6ce;
+
+            margin: 12px 0;
+        }
+
+        .bot-features li::before {
+            content: "✓";
+
+            color: #5865f2;
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
 
         /* WHY US */
 
-        .why-us {
-            background: #101018;
+        .why {
+            background: #0d0f15;
         }
 
         .why-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
@@ -223,54 +317,132 @@
 
         .why-card {
             text-align: center;
-            padding: 30px;
+
+            padding: 35px;
+
+            background: #11131a;
+
+            border: 1px solid #22242d;
+
+            border-radius: 15px;
         }
 
-        .why-card div {
-            font-size: 40px;
-            margin-bottom: 15px;
+        .why-card .icon {
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            margin-bottom: 12px;
         }
 
         .why-card p {
-            color: #aaa;
-            margin-top: 10px;
+            color: #8f919d;
+
+            line-height: 1.6;
         }
+
+
+        /* HOW IT WORKS */
+
+        .steps {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .number {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #5865f2;
+
+            font-weight: bold;
+
+            font-size: 20px;
+        }
+
+        .step p {
+            color: #90929d;
+
+            margin-top: 10px;
+
+            line-height: 1.5;
+        }
+
 
         /* DISCORD */
 
         .discord {
             text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #191d48,
+                    #08090d 65%
+                );
         }
 
         .discord-box {
-            max-width: 700px;
+            max-width: 800px;
+
             margin: auto;
+        }
 
-            padding: 50px 30px;
+        .discord-box h2 {
+            font-size: 50px;
 
-            background: #151521;
-
-            border-radius: 20px;
-
-            border: 1px solid #252538;
+            margin-bottom: 20px;
         }
 
         .discord-box p {
-            color: #aaa;
-            margin: 20px 0;
+            color: #9b9da8;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
         }
+
 
         /* FOOTER */
 
         footer {
+            padding: 35px 7%;
+
             text-align: center;
 
-            padding: 30px;
+            background: #06070a;
 
-            background: #08080d;
+            border-top: 1px solid #1c1e26;
 
-            color: #777;
+            color: #686a74;
         }
+
 
         /* MOBILE */
 
@@ -278,19 +450,28 @@
 
             nav {
                 flex-direction: column;
-                gap: 15px;
+
+                gap: 20px;
             }
 
             nav ul {
                 gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            section {
+                padding: 70px 5%;
             }
 
             .hero p {
                 font-size: 17px;
+            }
+
+            .section-header h2 {
+                font-size: 35px;
             }
 
         }
@@ -298,344 +479,496 @@
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVBAR -->
 
-    <nav>
+<!-- NAVIGATION -->
 
-        <div class="logo">
-            🤖 Botify
+<nav>
+
+    <div class="logo">
+        Discord <span>Bot Market</span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#bots">Bots</a>
+        </li>
+
+        <li>
+            <a href="#why">Why Us</a>
+        </li>
+
+        <li>
+            <a href="#how">How It Works</a>
+        </li>
+
+        <li>
+            <a href="#discord">Discord</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✨ Premium Discord Bots
         </div>
 
-        <ul>
+        <h1>
+            Welcome to the
+            <span>Discord Bot Market</span>
+        </h1>
 
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#bots">Bots</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#discord">Discord</a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-
-    <!-- HERO -->
-
-    <section class="hero" id="home">
-
-        <div>
-
-            <h1>
-                Powerful <span>Discord Bots</span>
-            </h1>
-
-            <p>
-                Ανακάλυψε επαγγελματικά Discord Bots
-                για moderation, tickets, economy και
-                πολλά ακόμα.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#bots" class="button primary">
-                    🤖 Explore Bots
-                </a>
-
-                <a href="#discord" class="button secondary">
-                    💬 Join Discord
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- BOTS -->
-
-    <section id="bots">
-
-        <h2 class="section-title">
-            Our Bots
-        </h2>
-
-        <p class="section-description">
-            Διάλεξε το bot που ταιριάζει στον Discord server σου.
+        <p>
+            Discover powerful and reliable Discord bots
+            designed to improve your community.
+            Choose a bot, join our Discord server,
+            and get started today.
         </p>
 
-
-        <div class="bots">
-
-
-            <!-- BOT 1 -->
-
-            <div class="bot-card">
-
-                <div class="bot-icon">
-                    🛡️
-                </div>
-
-                <h3>
-                    Moderation Bot
-                </h3>
-
-                <p>
-                    Προστάτευσε τον Discord server σου
-                    με ένα δυνατό moderation system.
-                </p>
-
-                <ul class="features">
-
-                    <li>✅ Auto Moderation</li>
-                    <li>✅ Anti-Spam</li>
-                    <li>✅ Warn System</li>
-                    <li>✅ Ban & Kick</li>
-
-                </ul>
-
-                <a href="#discord" class="button primary">
-                    Order Bot
-                </a>
-
-            </div>
-
-
-            <!-- BOT 2 -->
-
-            <div class="bot-card">
-
-                <div class="bot-icon">
-                    🎫
-                </div>
-
-                <h3>
-                    Ticket Bot
-                </h3>
-
-                <p>
-                    Δημιούργησε ένα επαγγελματικό
-                    ticket system για τον server σου.
-                </p>
-
-                <ul class="features">
-
-                    <li>✅ Ticket System</li>
-                    <li>✅ Staff Support</li>
-                    <li>✅ Auto Close</li>
-                    <li>✅ Transcript</li>
-
-                </ul>
-
-                <a href="#discord" class="button primary">
-                    Order Bot
-                </a>
-
-            </div>
-
-
-            <!-- BOT 3 -->
-
-            <div class="bot-card">
-
-                <div class="bot-icon">
-                    💰
-                </div>
-
-                <h3>
-                    Economy Bot
-                </h3>
-
-                <p>
-                    Πρόσθεσε ένα πλήρες economy system
-                    στον Discord server σου.
-                </p>
-
-                <ul class="features">
-
-                    <li>✅ Economy System</li>
-                    <li>✅ Daily Rewards</li>
-                    <li>✅ Shop</li>
-                    <li>✅ Leaderboard</li>
-
-                </ul>
-
-                <a href="#discord" class="button primary">
-                    Order Bot
-                </a>
-
-            </div>
-
-
-            <!-- BOT 4 -->
-
-            <div class="bot-card">
-
-                <div class="bot-icon">
-                    ⚙️
-                </div>
-
-                <h3>
-                    Custom Bot
-                </h3>
-
-                <p>
-                    Θέλεις κάτι μοναδικό;
-                    Δημιουργούμε custom Discord bot
-                    σύμφωνα με τις ανάγκες σου.
-                </p>
-
-                <ul class="features">
-
-                    <li>✅ Custom Commands</li>
-                    <li>✅ Custom Features</li>
-                    <li>✅ Personal Design</li>
-                    <li>✅ Support</li>
-
-                </ul>
-
-                <a href="#discord" class="button primary">
-                    Contact Us
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- WHY US -->
-
-    <section class="why-us" id="about">
-
-        <h2 class="section-title">
-            Why Choose Us?
-        </h2>
-
-        <p class="section-description">
-            Όλα όσα χρειάζεσαι για έναν καλύτερο Discord server.
-        </p>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-card">
-
-                <div>⚡</div>
-
-                <h3>
-                    Fast
-                </h3>
-
-                <p>
-                    Γρήγορη παράδοση και άμεση υποστήριξη.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div>🔒</div>
-
-                <h3>
-                    Secure
-                </h3>
-
-                <p>
-                    Ασφαλή και αξιόπιστα Discord Bots.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div>💎</div>
-
-                <h3>
-                    Quality
-                </h3>
-
-                <p>
-                    Προσεγμένα bots με επαγγελματικό design.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div>💬</div>
-
-                <h3>
-                    Support
-                </h3>
-
-                <p>
-                    Επικοινωνία και βοήθεια μέσω Discord.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- DISCORD -->
-
-    <section class="discord" id="discord">
-
-        <div class="discord-box">
-
-            <h2 class="section-title">
-                Join Our Discord
-            </h2>
-
-            <p>
-                Θέλεις να παραγγείλεις ένα bot;
-                Μπες στον Discord server μας
-                και άνοιξε ένα ticket.
-            </p>
-
-            <!-- ΑΛΛΑΞΕ ΤΟ LINK ΜΕ ΤΟ ΔΙΚΟ ΣΟΥ DISCORD INVITE -->
+        <div class="hero-buttons">
 
             <a
-                href="https://discord.gg/ΒΑΛΕ-ΕΔΩ-ΤΟ-LINK-ΣΟΥ"
+                href="#bots"
                 class="button primary"
             >
-                💬 Join Discord
+                Explore Bots
+            </a>
+
+            <a
+                href="#discord"
+                class="button secondary"
+            >
+                Join Discord
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
 
-    <footer>
+<!-- BOTS -->
 
-        © 2026 Botify. All rights reserved.
+<section id="bots">
 
-    </footer>
+    <div class="section-header">
+
+        <h2>
+            Our Bots
+        </h2>
+
+        <p>
+            Powerful tools for every Discord community.
+        </p>
+
+    </div>
+
+
+    <div class="bots-grid">
+
+
+        <!-- MODERATION -->
+
+        <div class="bot-card">
+
+            <div class="bot-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Moderation Bot
+            </h3>
+
+            <p>
+                Keep your server safe and organized
+                with advanced moderation features.
+            </p>
+
+            <ul class="bot-features">
+
+                <li>Auto Moderation</li>
+
+                <li>Anti-Spam Protection</li>
+
+                <li>Warn System</li>
+
+                <li>Ban & Kick Commands</li>
+
+            </ul>
+
+            <a
+                href="#discord"
+                class="button primary"
+            >
+                Get This Bot
+            </a>
+
+        </div>
+
+
+
+        <!-- TICKET -->
+
+        <div class="bot-card">
+
+            <div class="bot-icon">
+                🎫
+            </div>
+
+            <h3>
+                Ticket Bot
+            </h3>
+
+            <p>
+                Create a professional support system
+                for your Discord server.
+            </p>
+
+            <ul class="bot-features">
+
+                <li>Ticket System</li>
+
+                <li>Staff Support</li>
+
+                <li>Auto Close</li>
+
+                <li>Ticket Transcripts</li>
+
+            </ul>
+
+            <a
+                href="#discord"
+                class="button primary"
+            >
+                Get This Bot
+            </a>
+
+        </div>
+
+
+
+        <!-- WELCOME -->
+
+        <div class="bot-card">
+
+            <div class="bot-icon">
+                👋
+            </div>
+
+            <h3>
+                Welcome Bot
+            </h3>
+
+            <p>
+                Welcome new members and make
+                your community feel alive.
+            </p>
+
+            <ul class="bot-features">
+
+                <li>Welcome Messages</li>
+
+                <li>Goodbye Messages</li>
+
+                <li>Auto Roles</li>
+
+                <li>Custom Greetings</li>
+
+            </ul>
+
+            <a
+                href="#discord"
+                class="button primary"
+            >
+                Get This Bot
+            </a>
+
+        </div>
+
+
+
+        <!-- CUSTOM -->
+
+        <div class="bot-card">
+
+            <div class="bot-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Custom Bot
+            </h3>
+
+            <p>
+                Need something unique?
+                Get a custom Discord bot
+                built for your community.
+            </p>
+
+            <ul class="bot-features">
+
+                <li>Custom Commands</li>
+
+                <li>Custom Features</li>
+
+                <li>Custom Design</li>
+
+                <li>Dedicated Support</li>
+
+            </ul>
+
+            <a
+                href="#discord"
+                class="button primary"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- WHY US -->
+
+<section class="why" id="why">
+
+    <div class="section-header">
+
+        <h2>
+            Why Choose Us?
+        </h2>
+
+        <p>
+            Everything you need to improve your Discord server.
+        </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Get your bot quickly and start using
+                it in your server.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                🔒
+            </div>
+
+            <h3>
+                Secure
+            </h3>
+
+            <p>
+                Reliable bots designed with
+                security and stability in mind.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                💎
+            </div>
+
+            <h3>
+                High Quality
+            </h3>
+
+            <p>
+                Modern, powerful and
+                professional Discord bots.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                💬
+            </div>
+
+            <h3>
+                Support
+            </h3>
+
+            <p>
+                Get help and support directly
+                through our Discord server.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how">
+
+    <div class="section-header">
+
+        <h2>
+            How It Works
+        </h2>
+
+        <p>
+            Getting your Discord bot is simple.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="number">
+                1
+            </div>
+
+            <h3>
+                Choose a Bot
+            </h3>
+
+            <p>
+                Browse our available Discord bots
+                and choose the one you need.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                2
+            </div>
+
+            <h3>
+                Join Discord
+            </h3>
+
+            <p>
+                Join our Discord community
+                and contact our team.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                3
+            </div>
+
+            <h3>
+                Get Your Bot
+            </h3>
+
+            <p>
+                Complete your order and
+                receive your Discord bot.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- DISCORD -->
+
+<section class="discord" id="discord">
+
+    <div class="discord-box">
+
+        <h2>
+            Ready to Get Started?
+        </h2>
+
+        <p>
+            Join our Discord server to browse our bots,
+            ask questions, place an order,
+            or request a custom bot.
+        </p>
+
+
+        <!-- ΒΑΛΕ ΕΔΩ ΤΟ ΔΙΚΟ ΣΟΥ DISCORD INVITE -->
+
+        <a
+            href="https://discord.gg/ΒΑΛΕ-ΤΟ-LINK-ΣΟΥ"
+            class="button primary"
+        >
+            Join Our Discord
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Discord Bot Market.
+    All rights reserved.
+
+</footer>
 
 
 </body>
