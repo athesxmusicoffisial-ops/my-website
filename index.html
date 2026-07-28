@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Basket & Music</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0f;
+            color: white;
+        }
+
+        nav {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111118;
+        }
+
+        nav h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #bbbbbb;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #15151d;
+            padding: 30px;
+            width: 280px;
+            border-radius: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #bbbbbb;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #111118;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>🏀 BASKET & MUSIC</h1>
+
+        <div>
+            <a href="#basket">Basket</a>
+            <a href="#music">Music</a>
+            <a href="#discord">Discord</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+
+        <div>
+            <h2>Basketball & Music</h2>
+
+            <p>
+                Το δικό μας community για μπάσκετ,
+                μουσική και διασκέδαση.
+            </p>
+
+            <a class="button" href="#discord">
+                Join Discord
+            </a>
+        </div>
+
+    </section>
+
+    <section class="section" id="basket">
+
+        <h2>🏀 Basketball</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>News</h3>
+                <p>
+                    Τα τελευταία νέα από τον κόσμο
+                    του μπάσκετ.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Highlights</h3>
+                <p>
+                    Οι καλύτερες στιγμές και
+                    τα πιο εντυπωσιακά plays.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Community</h3>
+                <p>
+                    Μίλα με άλλους fans του μπάσκετ.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section" id="music">
+
+        <h2>🎵 Music</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Music</h3>
+                <p>
+                    Ανακάλυψε νέα μουσική
+                    και αγαπημένα tracks.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Playlists</h3>
+                <p>
+                    Οι καλύτερες playlists
+                    για κάθε στιγμή.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Events</h3>
+                <p>
+                    Μουσικά events και δραστηριότητες
+                    της κοινότητας.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section" id="discord">
+
+        <h2>💬 Join Our Discord</h2>
+
+        <p style="margin: 20px 0;">
+            Έλα στην κοινότητά μας!
+        </p>
+
+        <a class="button" href="https://discord.gg/ΒΑΛΕ-ΤΟ-LINK-ΣΟΥ">
+            Join Discord
+        </a>
+
+    </section>
+
+    <footer>
+
+        © 2026 Basket & Music Community
+
+    </footer>
+
+</body>
+</html>
